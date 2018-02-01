@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use App\Model\Special\ArrayArgument;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use GraphQL\Doctrine\Annotation as API;
@@ -170,7 +171,7 @@ class Post extends AbstractModel
      *
      * @return bool
      */
-    public function hasWords($words): bool
+    public function hasWords(ArrayArgument $words): bool
     {
         return count(array_diff($words, $this->getWords())) > 0;
     }
